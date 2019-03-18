@@ -6,8 +6,12 @@ public class Merge{
   }
 
   public static void mergesortH(int[] data,int lo,int hi){
-    if (lo >= hi)
-      return;
-      
+    if (lo < hi){
+      int middle = (hi + lo)/2;
+      mergesortH(data,lo,middle);
+      mergesortH(data,middle + 1,hi);
+      merge(data,lo,middle,hi);
+    }
   }
+  
 }
