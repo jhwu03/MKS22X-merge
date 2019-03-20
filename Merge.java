@@ -27,10 +27,30 @@ public class Merge{
       C[i] = data[(middle + 1)+ i];
     }
 
-    int i, j;
+    int i, j, b;
     i = 0;
     j = 0;
-
+    b = lo;
+    while (i < half1 && j < half2){
+      if (R[i] <= C[j]){
+        data[b] = R[i];
+        i++;
+      }else{
+        data[b] = C[j];
+        j++;
+      }
+        b++;
+      }
+    while ( i < half1){
+      data[b] = R[i];
+      i++;
+      b++;
+    }
+    while(j < half2){
+      data[b] = C[j];
+      j++;
+      b++;
+    }
   }
 
 }
