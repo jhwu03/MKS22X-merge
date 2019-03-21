@@ -53,4 +53,29 @@ public class Merge{
     }
   }
 
+ public static void mergesortO(int[] data, int lo, int hi){
+   if(hi - lo <= 25){
+     insertionsort(data,lo,hi);
+     return;
+   }
+   if (lo < hi){
+     int middle = (hi + lo)/2;
+     mergesortH(data,lo,middle);
+     mergesortH(data,middle + 1,hi);
+     merge(data,lo,middle,hi);
+   }
+ }
+
+  public static void insertionsort(int[] data, int lo, int hi){
+    for (int i = lo + 1; i <= hi; ++i){
+      int value = data[i];
+      int j = i - 1;
+      while (j >= lo && data[j] > value){
+        data[j + 1] = data[j];
+        j--;
+      }
+        data[j + 1] = value;
+    }
+  }
+
 }
